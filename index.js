@@ -8,6 +8,10 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(express.json());
 
+// Routes
+const authRoutes = require('./routes/authRoutes');
+app.use('/api/auth', authRoutes);
+
 // Basic Route
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'Server is running smoothly' });
