@@ -5,6 +5,9 @@ import ProtectedRoute from './components/ProtectedRoute';
 import AdminHeader from './components/AdminHeader';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
+import Listings from './pages/Listings';
+import CreateListing from './pages/CreateListing';
+import UpdateListing from './pages/UpdateListing';
 
 // Admin Layout wrapper including header and central container
 const AdminLayout = () => {
@@ -30,8 +33,9 @@ function App() {
           <Route element={<ProtectedRoute />}>
             <Route element={<AdminLayout />}>
               <Route path="/admin/dashboard" element={<Dashboard />} />
-              <Route path="/admin/listings" element={<div style={{ textAlign: 'left' }}><h2>Listings</h2><p>Manage listing items (Phase 4)...</p></div>} />
-              <Route path="/admin/create-listing" element={<div style={{ textAlign: 'left' }}><h2>Create Listing</h2><p>Add new properties (Phase 4)...</p></div>} />
+              <Route path="/admin/listings" element={<Listings />} />
+              <Route path="/admin/create-listing" element={<CreateListing />} />
+              <Route path="/admin/update-listing/:id" element={<UpdateListing />} />
             </Route>
           </Route>
 
