@@ -8,6 +8,9 @@ import Dashboard from './pages/Dashboard';
 import Listings from './pages/Listings';
 import CreateListing from './pages/CreateListing';
 import UpdateListing from './pages/UpdateListing';
+import Home from './pages/Home';
+import Locations from './pages/Locations';
+import ListingDetails from './pages/ListingDetails';
 
 // Admin Layout wrapper including header and central container
 const AdminLayout = () => {
@@ -39,8 +42,12 @@ function App() {
             </Route>
           </Route>
 
+          {/* Public Frontend Routes */}
+          <Route path="/" element={<Home />} />
+          <Route path="/locations" element={<Locations />} />
+          <Route path="/listings/:id" element={<ListingDetails />} />
+
           {/* Root Redirects */}
-          <Route path="/" element={<Navigate to="/admin/dashboard" replace />} />
           <Route path="*" element={<Navigate to="/admin/dashboard" replace />} />
         </Routes>
       </Router>

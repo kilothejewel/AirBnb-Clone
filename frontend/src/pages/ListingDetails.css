@@ -1,0 +1,344 @@
+.listing-details-page {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+  min-height: 100vh;
+  text-align: left;
+}
+
+/* Nav styles */
+.details-header-nav {
+  height: 80px;
+  background-color: var(--white);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+}
+
+.details-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.details-content-body {
+  padding-top: 24px;
+  padding-bottom: 80px;
+}
+
+/* Heading section */
+.details-header-section {
+  margin-bottom: 24px;
+}
+
+.details-header-section h1 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.details-header-meta {
+  display: flex;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.location-link {
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--gray);
+}
+
+/* Gallery: 1 large, 4 small grid */
+.details-image-gallery {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 8px;
+  height: 380px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.gallery-main-image {
+  height: 100%;
+  width: 100%;
+}
+
+.gallery-main-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.gallery-main-image img:hover {
+  filter: brightness(0.95);
+}
+
+.gallery-sub-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 8px;
+  height: 100%;
+}
+
+.gallery-sub-images img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.gallery-sub-images img:hover {
+  filter: brightness(0.95);
+}
+
+@media (max-width: 768px) {
+  .details-image-gallery {
+    grid-template-columns: 1fr;
+    height: 250px;
+  }
+  .gallery-sub-images {
+    display: none; /* Hide grid items on small devices */
+  }
+}
+
+/* Columns layout */
+.details-two-columns {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 80px;
+}
+
+@media (max-width: 900px) {
+  .details-two-columns {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.details-info-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.host-info-block h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.host-badge {
+  font-size: 14px;
+  color: var(--gray);
+  font-weight: 500;
+}
+
+.info-divider {
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 24px 0;
+}
+
+.description-block h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.description-text {
+  font-size: 16px;
+  color: var(--dark);
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+.amenities-block h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.amenities-icons-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.amenity-icon-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  color: var(--dark);
+}
+
+.amenity-bullet {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* Booking Widget Column */
+.details-widget-column {
+  position: relative;
+}
+
+.booking-widget-card {
+  position: sticky;
+  top: 104px;
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.widget-price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.widget-price {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.widget-unit {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--gray);
+}
+
+.widget-rating {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Inputs grid inside card */
+.booking-inputs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.booking-input-field {
+  padding: 10px 12px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.booking-input-field.border-right {
+  border-right: 1px solid var(--border-color);
+}
+
+.booking-input-field.border-top {
+  border-top: 1px solid var(--border-color);
+}
+
+.booking-input-field.span-two {
+  grid-column: span 2;
+}
+
+.booking-input-field label {
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--dark);
+  margin-bottom: 4px;
+}
+
+.booking-input-field input, .booking-input-field select {
+  border: none;
+  outline: none;
+  font-family: var(--font-family);
+  font-size: 14px;
+  color: var(--dark);
+  padding: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.reserve-submit-btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+}
+
+/* Alerts */
+.booking-error {
+  background-color: rgba(201, 42, 42, 0.08);
+  border: 1px solid rgba(201, 42, 42, 0.2);
+  color: var(--danger);
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.booking-success {
+  background-color: rgba(43, 138, 62, 0.08);
+  border: 1px solid rgba(43, 138, 62, 0.2);
+  color: var(--success);
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Calculator breakdowns */
+.cost-breakdown-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.calculator-tip {
+  text-align: center;
+  font-size: 13px;
+  color: var(--gray);
+}
+
+.breakdown-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  color: var(--dark);
+}
+
+.breakdown-row span:first-child {
+  text-decoration: underline;
+  cursor: help;
+}
+
+.breakdown-divider {
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 4px 0;
+}
+
+.breakdown-row.total-row {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.breakdown-row.total-row span:first-child {
+  text-decoration: none;
+  cursor: default;
+}
