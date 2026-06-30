@@ -24,6 +24,16 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'Server is running smoothly' });
 });
 
+// Serve static assets in production
+if (process.env.NODE_ENV === 'production') {
+  const path = require('path');
+  app.use(express.static(path.join(__dirname, 'frontend/dist')));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'frontend/dist/index.html'));
+  });
+}
+
 // Database Connection and Server Start
 mongoose
   .connect(process.env.MONGODB_URI)
