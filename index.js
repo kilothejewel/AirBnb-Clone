@@ -34,14 +34,24 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-// Database Connection and Server Start
+// Start Server Immediately
+if (!process.env.MONGODB_URI) {
+  console.error('================================================================');
+  console.error('CRITICAL ERROR: MONGODB_URI is not defined in environment vars!');
+  console.error('Please configure MONGODB_URI under settings in the dashboard.');
+  console.error('================================================================');
+  process.exit(1);
+}
+
+const server = app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
+// Database Connection
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => {
     console.log('Successfully connected to MongoDB');
-    app.listen(PORT, () => {
-      console.log(`Server is running on port ${PORT}`);
-    });
   })
   .catch((err) => {
     console.error('Database connection error:', err);
